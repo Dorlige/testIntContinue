@@ -1,0 +1,18 @@
+install:
+- gem install asciidoctor
+- gem install coderay
+- gem install link-checker
+script:
+#- asciidoctor faq.adoc -o html/faq.html
+- asciidoctor -a icons -a linkcss! -a numbered -a imagesdir=images main.asc -o html/faq.html
+- rake check_links
+- rake test
+
+
+env:
+  global:
+    - GH_REF: Dorlige/testIntContinue.git
+    - secure: HufmIm4U9Otfffcb3k3WT3ulK2FUcdSol6AwxzCQ6vAEuTxRarBX9Ny2DAl+EAsW1w6WfTVW1KNb2N6eCnQgD0TKA3MaSe66F6AnjMYJ/lhFdjAcu613Q2K+4q88QwHk+fNrp4DFyeXMMlehAYEjfXvmRE0fZnZSkTsAnKSM+LAvzM8aDv95a50CQ7274N+O3Jk+92twfTA7Tb08nH42dsaZ2JytaO5cTen82VE1VwtsJ8zfYAuuBNto33Pn+1HK95+JmsXqFiAOxszNsNr49fNOkJSTBtsNwOJCB7COgOrcdbUDFds/NThOBCA8kJxXR0E3lxQ6kKzVKVUghaW3QC/MOqwfQLDLFATZqnA+HyvTFVNu2n3AS2rsKjaw6mRzUx4/E9iolh+XumILop0pOb736D11cURYSq457mj+8jLHwACaM61oJI6gHGA8E6IoE0cXPEOgHKasyeQUPWTCEbR8K2A+n7NpdTwrvU+E1nYpv2a0Uw9Yf9nR5XvwTDYNaDAK6SsPv0IXJ6uuSWlRSHmiYWG5XupgRWltrR6hFaC27axiKupolGfhYImkXXSXAWXYb8avXiEoMSn/gGlh/9fMukxBE39dRH0XJQ0OszDJGkijjoqHhgdjvU4t2J2NycmAyvBnbEhxMndxFOo63dlli4pKLROflSa9lHNxOus=
+after_success: 
+- bash monscript.sh
+
