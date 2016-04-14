@@ -22,7 +22,7 @@ cp $HOME/html/faq.html ./index.html
 
  #add, commit and push files
  git add -f .
-# git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages "
+ git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages "
  #git push -fq origin gh-pages > /dev/null
  #git push -fq origin master > /dev/null
 
